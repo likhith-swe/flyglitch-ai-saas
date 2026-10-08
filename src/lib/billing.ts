@@ -123,15 +123,15 @@ export async function startCheckout(
     }
     return {
       mode: "razorpay_payment_link",
-      url: "https://razorpay.me/@likhiths",
-      notes: ["Using direct Razorpay payment link: https://razorpay.me/@likhiths"],
+      url: "https://razorpay.me/@NEXVRA",
+      notes: ["Using direct Razorpay payment link: https://razorpay.me/@NEXVRA"],
     };
   }
 
   if (currency === "INR") {
     return {
       mode: "razorpay_payment_link",
-      url: "https://razorpay.me/@likhiths",
+      url: "https://razorpay.me/@NEXVRA",
       notes: ["Direct Razorpay payment link (India ₹499/mo)"],
     };
   }
