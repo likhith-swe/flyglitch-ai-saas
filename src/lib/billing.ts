@@ -174,8 +174,7 @@ export async function startCheckout(
     }
   }
 
-  if (currency === "INR" && !env.RAZORPAY_KEY_ID) notes.push("Razorpay credentials absent");
-  if (currency === "USD" && !env.STRIPE_SECRET_KEY) notes.push("Stripe credentials absent");
+  if (!env.STRIPE_SECRET_KEY) notes.push("Stripe credentials absent");
   notes.push("sandbox activation token issued — Club Pro activates without payment rails");
   return {
     mode: "sandbox_token",
