@@ -117,10 +117,23 @@ export async function startCheckout(
           };
         }
       }
-      notes.push(`razorpay payment link failed (${res.status}) — falling back to sandbox activation`);
+      notes.push(`razorpay payment link failed (${res.status}) — using direct payment link`);
     } catch {
-      notes.push("razorpay payment link unreachable — falling back to sandbox activation");
+      notes.push("razorpay payment link unreachable — using direct payment link");
     }
+    return {
+      mode: "razorpay_payment_link",
+      url: "https://razorpay.me/@likhiths",
+      notes: ["Using direct Razorpay payment link: https://razorpay.me/@likhiths"],
+    };
+  }
+
+  if (currency === "INR") {
+    return {
+      mode: "razorpay_payment_link",
+      url: "https://razorpay.me/@likhiths",
+      notes: ["Direct Razorpay payment link (India ₹499/mo)"],
+    };
   }
 
   if (currency === "USD" && env.STRIPE_SECRET_KEY) {
